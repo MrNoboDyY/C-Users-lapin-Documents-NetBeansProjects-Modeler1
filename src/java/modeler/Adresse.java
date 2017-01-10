@@ -10,12 +10,22 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.NamedQueries;
+import javax.persistence.NamedQuery;
 import javax.persistence.OneToMany;
+import javax.persistence.Table;
+import javax.xml.bind.annotation.XmlRootElement;
 
 /**
  * @author lapin
  */
 @Entity
+@Table(name = "ADRESSE")
+@XmlRootElement
+@NamedQueries({
+    @NamedQuery(name = "Adresse.findAll", query = "SELECT a FROM Adresse a")
+    , @NamedQuery(name = "Adresse.findById", query = "SELECT a FROM Adresse a WHERE a.id = :id")
+    , @NamedQuery(name = "Adresse.findByAdresse", query = "SELECT a FROM Adresse a WHERE a.adresse = :adresse")})
 public class Adresse implements Serializable {
 
     @Id

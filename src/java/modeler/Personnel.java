@@ -10,11 +10,22 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
+import javax.persistence.NamedQueries;
+import javax.persistence.NamedQuery;
+import javax.persistence.Table;
+import javax.xml.bind.annotation.XmlRootElement;
 
 /**
  * @author lapin
  */
 @Entity
+@XmlRootElement
+@Table(name = "PERSONNEL")
+@NamedQueries({
+    @NamedQuery(name = "Personnel.findAll", query = "SELECT p FROM Personnel p")
+    , @NamedQuery(name = "Personnel.findById", query = "SELECT p FROM Personnel p WHERE p.id = :id")
+    , @NamedQuery(name = "Personnel.findByNom", query = "SELECT p FROM Personnel p WHERE p.nom = :nom")
+    , @NamedQuery(name = "Personnel.findByPrenom", query = "SELECT p FROM Personnel p WHERE p.prenom = :prenom")})
 public class Personnel implements Serializable {
 
     @Id
@@ -72,11 +83,10 @@ public class Personnel implements Serializable {
     public void setAdresse(Adresse adresse) {
         this.adresse = adresse;
     }
-    
 
     @Override
-    public String toString(){
-        return "nom = " + this.nom + "<br/>prenom " + this.prenom + " <br/>adresse " + this.adresse.getAdresse()+"<br/>";
+    public String toString() {
+        return "nom = " + this.nom + "<br/>prenom " + this.prenom + " <br/>adresse " + this.adresse.getAdresse() + "<br/>";
     }
 
 }
