@@ -47,12 +47,24 @@ public class ModelerServlet extends HttpServlet {
             em.getTransaction().begin();
             Personnel pers = new Personnel();
             Personnel pers1 = new Personnel();
+            Personnel pers2 = new Personnel();
+            Personnel pers3 = new Personnel();
+            
 
             pers.setNom("Louise");
             pers.setPrenom("solange");
+            
 
             pers1.setNom("Pierre");
             pers1.setPrenom("alain");
+            
+            pers2.setNom("Solange");
+            pers2.setPrenom("bilé");
+            
+            pers3.setNom("Etienne");
+            pers3.setPrenom("ciryll");
+            
+            
 
             em.persist(pers);
             em.persist(pers1);
