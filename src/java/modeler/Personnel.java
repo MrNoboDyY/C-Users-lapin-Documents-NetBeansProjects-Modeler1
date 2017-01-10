@@ -72,6 +72,7 @@ public class Personnel implements Serializable {
     public void setAdresse(Adresse adresse) {
         this.adresse = adresse;
     }
+    
 
     @Override
     public String toString(){
