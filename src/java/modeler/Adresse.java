@@ -51,5 +51,6 @@ public class Adresse implements Serializable {
     public void setPersonnels(List<Personnel> personnels) {
         this.personnels = personnels;
     }
-
+    
+    
 }

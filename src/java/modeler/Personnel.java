@@ -73,4 +73,9 @@ public class Personnel implements Serializable {
         this.adresse = adresse;
     }
 
+    @Override
+    public String toString(){
+        return "nom = " + this.nom + "<br/>prenom " + this.prenom + " <br/>adresse " + this.adresse.getAdresse()+"<br/>";
+    }
+
 }
